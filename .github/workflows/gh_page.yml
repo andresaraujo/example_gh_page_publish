@@ -28,5 +28,19 @@ jobs:
       - name: Install peanut
         run: pub global activate peanut
 
-      - name: status
-        run: git status
+      - name: Commit files
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: Penut
+        run: pub global run peanut
+
+      - name: Checkout gh-pages
+        run: git checkout gh-pages
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
