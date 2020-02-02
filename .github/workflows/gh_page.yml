@@ -1,0 +1,32 @@
+name: GhPage
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_dart_packages:
+    runs-on: ubuntu-latest
+
+    container:
+      image: google/dart:${{ matrix.version }}
+
+    strategy:
+      matrix:
+        version: ["latest"]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pub get
+
+      - name: Analyze
+        run: dartanalyzer --fatal-infos --fatal-warnings .
+
+      - name: Install peanut
+        run: pub global activate peanut
+
+      - name: status
+        run: git status
