@@ -28,7 +28,7 @@ jobs:
       - name: Analyze
         run: dartanalyzer --fatal-infos --fatal-warnings .
 
-      - name: Commit files
+      - name: Setup GH user
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
@@ -40,8 +40,8 @@ jobs:
         run: git checkout gh-pages
 
       - name: Push gh-page
-        uses: ad-m/github-push-action@master
+        uses: andresaraujo/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
           branch: gh-pages
           force: true
