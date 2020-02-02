@@ -19,27 +19,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install peanut
+        run: pub global activate peanut
+
       - name: Install dependencies
         run: pub get
 
       - name: Analyze
         run: dartanalyzer --fatal-infos --fatal-warnings .
 
-      - name: Install peanut
-        run: pub global activate peanut
-
       - name: Commit files
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
 
-      - name: Penut
+      - name: Build web app
         run: pub global run peanut
 
       - name: Checkout gh-pages
         run: git checkout gh-pages
 
-      - name: Push changes
+      - name: Push gh-page
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
