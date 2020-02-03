@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js",
+  "sourceRoot": "",
+  "sources": ["main.dart","org-dartlang-sdk:///sdk/lib/html/dart2js/html_dart2js.dart"],
+  "names": ["main","Interceptor","Object","String","throwCyclicInit","closureFromTearOff","int","double","num","bool","Null","List","toString","querySelector"],
+  "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEKA,WC+usCsCA,iCD9usChBA,qDAC3BA,C",
+  "x_org_dartlang_dart2js": {
+    "minified_names": {
+      "global": "a,1,b,2,c,3,e,0,m,4,d,5,k,6,j,7,l,8,i,9,h,10,f,11",
+      "instance": "h,12"
+    },
+    "frames": "80IAGEaiC;"
+  }
+}
